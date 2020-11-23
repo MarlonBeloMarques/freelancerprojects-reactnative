@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Block, Text } from "./src/elements";
-import { StatusBar } from "expo-status-bar";
+import * as React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { Block, Text } from './src/elements';
 
 export default function App() {
   return (

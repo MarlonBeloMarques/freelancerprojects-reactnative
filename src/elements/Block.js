@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Animated } from 'react-native';
 import { theme } from '../constants';
 
-const Block = ({ 
+const Block = ({
   margin,
   padding,
   flex,
@@ -172,7 +172,7 @@ const Block = ({
       {children}
     </View>
   );
-}
+};
 
 export default Block;
 
@@ -223,7 +223,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.gray,
   },
-  
+
   primary: { backgroundColor: theme.colors.primary },
   secondary: { backgroundColor: theme.colors.secondary },
   tertiary: { backgroundColor: theme.colors.tertiary },

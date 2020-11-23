@@ -1,9 +1,5 @@
-import React from "react";
-import {
-  StyleSheet,
-  Image,
-  Animated,
-} from "react-native";
+import React from 'react';
+import { StyleSheet, Image, Animated } from 'react-native';
 
 const Photo = ({
   width,
@@ -18,7 +14,7 @@ const Photo = ({
   resizeMode,
 }) => {
   const blockStyles = [
-    absolute && { position: "absolute" },
+    absolute && { position: 'absolute' },
     // eslint-disable-next-line no-use-before-define
     width && height && { width, height },
     avatar && styles.avatar,
@@ -30,7 +26,7 @@ const Photo = ({
       <Animated.Image
         style={blockStyles}
         ref={reference}
-        source={typeof image === "string" ? { uri: image } : image}
+        source={typeof image === 'string' ? { uri: image } : image}
         onLayout={onLayout}
         resizeMode={resizeMode}
       />
@@ -41,7 +37,7 @@ const Photo = ({
     <Image
       style={blockStyles}
       ref={reference}
-      source={typeof image === "string" ? { uri: image } : image}
+      source={typeof image === 'string' ? { uri: image } : image}
       onLayout={onLayout}
       resizeMode={resizeMode}
     />
