@@ -17,7 +17,7 @@ const sizes = {
 
   // font sizes
   h1: 42,
-  h2: 20,
+  h2: 26,
   h3: 18,
   title: 18,
   header: 16,
