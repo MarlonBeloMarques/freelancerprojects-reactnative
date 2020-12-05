@@ -5,6 +5,8 @@ import { Platform } from 'react-native';
 
 import { theme } from '../constants';
 import WelcomeScreen from '../screens/WelcomeScreen';
+import SigninScreen from '../screens/SigninScreen';
+import RegisterScreen from '../screens/RegisterScreen';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +16,7 @@ export default function AuthStack() {
       screenOptions={{
         headerTransparent: true,
         headerBackTitleVisible: null,
+        headerTintColor: theme.colors.white,
         title: null,
         headerLeftContainerStyle: {
           alignItems: 'center',
@@ -28,6 +31,8 @@ export default function AuthStack() {
       }}
     >
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="SignIn" component={SigninScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
 }

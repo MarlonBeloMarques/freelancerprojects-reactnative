@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginVertical: theme.sizes.padding / 3,
     marginTop: theme.sizes.base / 2,
-    backgroundColor: theme.colors.secondary,
   },
   shadow: {
     shadowColor: theme.colors.tertiary,

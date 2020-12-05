@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Dimensions, FlatList } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { theme } from '../../constants';
@@ -7,12 +7,65 @@ import styles from './styles';
 
 const { width, height } = Dimensions.get('window');
 
-const WelcomeScreen = ({ illustrations }) => {
-  const scrollX = new Animated.Value(0);
+const WelcomeScreen = ({ illustrations, navigation }) => {
+  const [scrollX, setScrollX] = useState(new Animated.Value(0));
+  const [end, setEnd] = useState(false);
+
+  const [widthButtonOne] = useState(new Animated.Value(60));
+  const [widthButtonTwo] = useState(new Animated.Value(60));
+
+  const flatListRef = useRef();
+
+  const checkScroll = ({ layoutMeasurement, contentOffset, contentSize }) => {
+    if (layoutMeasurement.width + contentOffset.x >= contentSize.width) {
+      setEnd(true);
+    } else {
+      setEnd(false);
+    }
+
+    setScrollX(contentOffset.x);
+  };
+
+  useEffect(() => {
+    if (end) {
+      Animated.timing(widthButtonOne, {
+        toValue: width / 2 - theme.sizes.padding * 2,
+        duration: 150,
+        useNativeDriver: false,
+      }).start();
+
+      Animated.timing(widthButtonTwo, {
+        toValue: width - theme.sizes.padding * 4,
+        duration: 150,
+        useNativeDriver: false,
+      }).start();
+    } else {
+      Animated.timing(widthButtonOne, {
+        toValue: 60,
+        duration: 150,
+        useNativeDriver: false,
+      }).start();
+
+      Animated.timing(widthButtonTwo, {
+        toValue: 60,
+        duration: 150,
+        useNativeDriver: false,
+      }).start();
+    }
+  }, [end]);
+
+  const jumpScroll = () => {
+    flatListRef.current.scrollToIndex({
+      animated: true,
+      index: illustrations.indexOf(illustrations[illustrations.length - 1]),
+      viewPosition: 0.5,
+    });
+  };
 
   const renderIllustrations = () => {
     return (
       <FlatList
+        ref={flatListRef}
         horizontal
         pagingEnabled
         scrollEnabled
@@ -48,11 +101,7 @@ const WelcomeScreen = ({ illustrations }) => {
             </Block>
           </>
         )}
-        onScroll={Animated.event([
-          {
-            nativeEvent: { contentOffset: { x: scrollX } },
-          },
-        ])}
+        onScroll={({ nativeEvent }) => checkScroll(nativeEvent)}
       />
     );
   };
@@ -85,6 +134,72 @@ const WelcomeScreen = ({ illustrations }) => {
     );
   };
 
+  const interactiveButton = () => {
+    return (
+      <Block flex={false} absolute>
+        <Block
+          animated
+          absolute
+          color="transparent"
+          flex={false}
+          width={widthButtonOne}
+          height={50}
+          margin={theme.sizes.padding * 2}
+          middle
+          style={{ top: height / 1.25, zIndex: 2 }}
+        >
+          {!end ? (
+            <Button
+              color="secondary"
+              style={{
+                alignItems: 'center',
+              }}
+              onPress={() => jumpScroll()}
+            >
+              <MaterialIcons
+                name="skip-next"
+                size={34}
+                color={theme.colors.white}
+              />
+            </Button>
+          ) : (
+            <Button
+              color="secondary"
+              style={{
+                alignItems: 'center',
+              }}
+              onPress={() => navigation.navigate('SignIn')}
+            >
+              <Text bold>Sign in</Text>
+            </Button>
+          )}
+        </Block>
+        <Block
+          animated
+          absolute
+          color={theme.colors.tertiary}
+          flex={false}
+          width={widthButtonTwo}
+          height={65}
+          margin={theme.sizes.padding * 2}
+          padding={end ? [0, 0, 0, width / 2 - theme.sizes.padding * 2] : null}
+          middle
+          style={{ top: height / 1.26, left: -4, zIndex: 1 }}
+          card
+        >
+          {end && (
+            <Button
+              style={{ alignItems: 'center' }}
+              onPress={() => navigation.navigate('Register')}
+            >
+              <Text bold>Register</Text>
+            </Button>
+          )}
+        </Block>
+      </Block>
+    );
+  };
+
   return (
     <Block>
       <Block
@@ -103,37 +218,7 @@ const WelcomeScreen = ({ illustrations }) => {
         {renderIllustrations()}
       </Block>
       {renderSteps()}
-      <Block flex={false} absolute>
-        <Block
-          absolute
-          color="transparent"
-          flex={false}
-          width={60}
-          height={50}
-          margin={theme.sizes.padding * 2}
-          middle
-          style={{ top: height / 1.25, zIndex: 2 }}
-        >
-          <Button style={{ alignItems: 'center' }}>
-            <MaterialIcons
-              name="skip-next"
-              size={34}
-              color={theme.colors.white}
-            />
-          </Button>
-        </Block>
-        <Block
-          absolute
-          color={theme.colors.tertiary}
-          flex={false}
-          width={60}
-          height={65}
-          margin={theme.sizes.padding * 2}
-          middle
-          style={{ top: height / 1.255, left: -4, zIndex: 1 }}
-          card
-        />
-      </Block>
+      {interactiveButton()}
     </Block>
   );
 };
