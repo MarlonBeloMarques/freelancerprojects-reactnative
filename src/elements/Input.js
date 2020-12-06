@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
     width: theme.sizes.base * 2,
     height: theme.sizes.base * 2,
-    top: theme.sizes.base * 1.5,
+    top: theme.sizes.caption / 1.5,
     paddingRight: theme.sizes.base - 6,
     right: 0,
   },

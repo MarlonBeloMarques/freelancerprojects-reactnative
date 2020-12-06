@@ -18,6 +18,10 @@ export default function AuthStack() {
         headerBackTitleVisible: null,
         headerTintColor: theme.colors.white,
         title: null,
+        headerStyle: {
+          height:
+            Platform.OS === 'ios' ? theme.sizes.base * 6 : theme.sizes.base * 5,
+        },
         headerLeftContainerStyle: {
           alignItems: 'center',
           marginLeft: Platform.OS === 'ios' ? theme.sizes.base : 0,

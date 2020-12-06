@@ -144,7 +144,7 @@ const WelcomeScreen = ({ illustrations, navigation }) => {
           flex={false}
           width={widthButtonOne}
           height={50}
-          margin={theme.sizes.padding * 2}
+          margin={[theme.sizes.padding * 2]}
           middle
           style={{ top: height / 1.25, zIndex: 2 }}
         >
@@ -211,7 +211,7 @@ const WelcomeScreen = ({ illustrations, navigation }) => {
           image={require('../../assets/icons/icon.png')}
           resizeMode="contain"
           width={80}
-          height={50}
+          height={40}
         />
       </Block>
       <Block center middle>

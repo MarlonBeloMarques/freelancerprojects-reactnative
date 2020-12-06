@@ -17,7 +17,7 @@ const Button = ({
     disableRadiusDefault
       ? { borderRadius: radius }
       : { borderRadius: theme.sizes.radius },
-    styles.button,
+    style !== null && styles.button,
     shadow && styles.shadow, // shadow for IOS, elevation for android
     color && styles[color], // predefined styles colors for backgroundColor
     color && !styles[color] && { backgroundColor: color }, // custom backgroundColor
