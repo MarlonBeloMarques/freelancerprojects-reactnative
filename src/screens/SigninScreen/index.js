@@ -5,7 +5,7 @@ import { Block, Button, Input, Photo, Text } from '../../elements';
 
 const { width } = Dimensions.get('window');
 
-const SigninScreen = () => {
+const SigninScreen = ({ navigation }) => {
   const [emailOrUsername, setEmailOrUsername] = useState();
   const [password, setPassword] = useState();
 
@@ -53,7 +53,11 @@ const SigninScreen = () => {
           flex={false}
           padding={[theme.sizes.padding, 0, theme.sizes.base, 0]}
         >
-          <Button color="secondary" style={{ zIndex: 2 }}>
+          <Button
+            color="secondary"
+            style={{ zIndex: 2 }}
+            onPress={() => navigation.navigate('Navigation')}
+          >
             <Text center bold>
               Sign in
             </Text>
