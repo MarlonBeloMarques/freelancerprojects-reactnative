@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { AntDesign } from '@expo/vector-icons';
 import { Dimensions, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { theme } from '../constants';
 import ProjectsScreen from '../screens/ProjectsScreen';
 import MyProjectsScreen from '../screens/MyProjectsScreen';
@@ -11,7 +12,14 @@ const { width } = Dimensions.get('window');
 
 const Tab = createBottomTabNavigator();
 
-function MyTabBar({ state, descriptors, navigation }) {
+function MyTabBar({
+  state,
+  descriptors,
+  navigation,
+  locations,
+  startColor,
+  endColor,
+}) {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
 
   if (focusedOptions.tabBarVisible === false) {
@@ -35,7 +43,7 @@ function MyTabBar({ state, descriptors, navigation }) {
           marginLeft: theme.sizes.padding,
           marginRight: theme.sizes.padding,
           height: theme.sizes.base * 4,
-          zIndex: 2,
+          zIndex: 3,
         }}
       >
         {state.routes.map((route, index) => {
@@ -127,12 +135,31 @@ function MyTabBar({ state, descriptors, navigation }) {
           marginLeft: theme.sizes.padding,
           marginRight: theme.sizes.padding,
           marginBottom: theme.sizes.padding / 1.3,
+          zIndex: 2,
+        }}
+      />
+      <LinearGradient
+        locations={locations}
+        colors={[startColor, endColor]}
+        style={{
           zIndex: 1,
+          width,
+          height: theme.sizes.base * 8,
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
         }}
       />
     </>
   );
 }
+
+MyTabBar.defaultProps = {
+  startColor: theme.colors.primary,
+  endColor: 'rgba(52, 52, 52, 0.0)',
+  locations: [1, 0.01],
+};
 
 export default function NavigationTabBottom() {
   return (
