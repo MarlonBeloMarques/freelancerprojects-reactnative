@@ -12,7 +12,7 @@ const SigninScreen = ({ navigation }) => {
   const passwordRef = useRef();
 
   return (
-    <Block>
+    <Block color="primary">
       <Block
         flex={false}
         padding={[theme.sizes.padding * 2, theme.sizes.padding]}

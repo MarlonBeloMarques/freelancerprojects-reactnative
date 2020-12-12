@@ -201,7 +201,7 @@ const WelcomeScreen = ({ illustrations, navigation }) => {
   };
 
   return (
-    <Block>
+    <Block color="primary">
       <Block
         center
         flex={false}

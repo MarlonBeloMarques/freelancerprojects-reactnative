@@ -50,6 +50,6 @@ export const styles = StyleSheet.create({
   avatar: {
     width: 32,
     height: 32,
-    borderRadius: 26,
+    borderRadius: 8,
   },
 });

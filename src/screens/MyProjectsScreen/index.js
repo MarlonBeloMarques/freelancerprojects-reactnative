@@ -3,7 +3,7 @@ import { Block, Text } from '../../elements';
 
 const MyProjectsScreen = () => {
   return (
-    <Block center middle>
+    <Block color="primary" center middle>
       <Text>My Projects</Text>
     </Block>
   );

@@ -179,7 +179,6 @@ export default Block;
 export const styles = StyleSheet.create({
   block: {
     flex: 1,
-    backgroundColor: theme.colors.primary,
   },
   row: {
     flexDirection: 'row',

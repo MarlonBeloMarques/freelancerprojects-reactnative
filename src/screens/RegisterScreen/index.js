@@ -16,7 +16,7 @@ const RegisterScreen = () => {
   const confirmPasswordRef = useRef();
 
   return (
-    <Block>
+    <Block color="primary">
       <Block
         flex={false}
         padding={[theme.sizes.padding * 2, theme.sizes.padding]}
