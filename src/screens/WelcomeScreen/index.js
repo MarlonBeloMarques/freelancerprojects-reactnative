@@ -74,7 +74,7 @@ const WelcomeScreen = ({ illustrations, navigation }) => {
         snapToAlignment="center"
         data={illustrations}
         keyExtractor={(item) => `${item.id}`}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <>
             <Photo
               absolute
@@ -89,6 +89,7 @@ const WelcomeScreen = ({ illustrations, navigation }) => {
               }}
             />
             <Block
+              keyIndex={index}
               flex={false}
               width={width}
               height={260}
@@ -123,7 +124,7 @@ const WelcomeScreen = ({ illustrations, navigation }) => {
           });
           return (
             <Block
-              key={`step-${item.id}`}
+              keyIndex={item.id}
               animated
               flex={false}
               style={[styles.steps, { opacity }]}
@@ -226,7 +227,7 @@ const WelcomeScreen = ({ illustrations, navigation }) => {
 WelcomeScreen.defaultProps = {
   illustrations: [
     {
-      id: 1,
+      id: '1',
       title: {
         text:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Montes a.',
@@ -239,7 +240,7 @@ WelcomeScreen.defaultProps = {
       top: 20,
     },
     {
-      id: 2,
+      id: '2',
       title: {
         text: 'Eget sem vulputate sem sit est purus elit habitasse.',
         fontSize: theme.sizes.h3,
@@ -251,7 +252,7 @@ WelcomeScreen.defaultProps = {
       top: 140,
     },
     {
-      id: 3,
+      id: '3',
       title: {
         text: 'Amet urna proin sagittis sem.',
         fontSize: theme.sizes.h2,

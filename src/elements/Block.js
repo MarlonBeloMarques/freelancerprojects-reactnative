@@ -28,7 +28,7 @@ const Block = ({
   fullBorder,
   children,
   animated,
-  key,
+  keyIndex,
   onLayout,
   reference,
 }) => {
@@ -155,7 +155,7 @@ const Block = ({
     return (
       <Animated.View
         ref={reference}
-        key={key}
+        key={keyIndex}
         style={[
           absolute === true ? StyleSheet.absoluteFill : null,
           blockStyles,
@@ -168,7 +168,12 @@ const Block = ({
   }
 
   return (
-    <View ref={reference} key={key} style={blockStyles} onLayout={onLayout}>
+    <View
+      ref={reference}
+      key={keyIndex}
+      style={blockStyles}
+      onLayout={onLayout}
+    >
       {children}
     </View>
   );

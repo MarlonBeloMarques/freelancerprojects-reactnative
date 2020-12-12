@@ -41,7 +41,7 @@ const MyProjectsScreen = ({ locations, startColor, endColor }) => {
 
   const renderItem = ({ item, index }) => {
     return (
-      <Block flex={false} width={250}>
+      <Block keyIndex={index} flex={false} width={250}>
         <Photo
           image={item.backgroundImage}
           style={{
@@ -125,7 +125,7 @@ const MyProjectsScreen = ({ locations, startColor, endColor }) => {
               data={myProjects}
               sliderWidth={320}
               itemWidth={250}
-              layoutCardOffset="18"
+              layoutCardOffset={18}
             />
           </Block>
           <Block
