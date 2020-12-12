@@ -17,6 +17,7 @@ Freelance projects is an application aimed at accessing the details of autonomou
     <img src="./readme/register-screen.png" width="225" height="487" />
     <img src="./readme/projects-screen.png" width="225" height="487" />
     <img src="./readme/myProjects-screen.png" width="225" height="487" />
+    <img src="./readme/freela.gif" width="225" height="487" />
 </p>
 
 ---
