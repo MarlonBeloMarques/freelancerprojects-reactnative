@@ -5,6 +5,7 @@ import { Dimensions, ScrollView } from 'react-native';
 import { ProjectCard } from '../../components';
 import { theme } from '../../constants';
 import { Block, Button, Input, Photo, Text } from '../../elements';
+import { card } from './styles';
 
 const { width } = Dimensions.get('window');
 
@@ -150,6 +151,7 @@ const ProjectsScreen = ({ locations, startColor, endColor }) => {
                     priceMin={7000}
                     priceMax={16000}
                     photo={require('../../assets/images/profile.jpg')}
+                    style={card}
                   />
                   <ProjectCard
                     height={200}
@@ -159,6 +161,7 @@ const ProjectsScreen = ({ locations, startColor, endColor }) => {
                     priceMin={7000}
                     priceMax={16000}
                     photo={require('../../assets/images/profile.jpg')}
+                    style={card}
                   />
                 </Block>
                 <Block

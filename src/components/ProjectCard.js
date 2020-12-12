@@ -11,20 +11,15 @@ const projectCard = ({
   priceMax,
   priceMin,
   photo,
+  style,
 }) => {
   return (
     <Block
       color="gray"
       flex={false}
       height={height}
-      margin={[
-        theme.sizes.padding,
-        theme.sizes.padding,
-        0,
-        theme.sizes.padding,
-      ]}
       padding={theme.sizes.base}
-      card
+      style={style}
     >
       <Text bold caption white>
         {hashtag}
