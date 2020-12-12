@@ -45,7 +45,7 @@ Freelancer projects is an application aimed at accessing the details of autonomo
 - Clone this repository on your machine
 
 ```
-https://github.com/MarlonBeloMarques/freelanceprojects-reactnative
+https://github.com/MarlonBeloMarques/freelancerprojects-reactnative
 ```
 ### Getting Started
 
