@@ -1,7 +1,7 @@
-# Freelance Projects
+# Freelancer Projects
 
 <p align="center">
-Freelance projects is an application aimed at accessing the details of autonomous projects and sending proposals.</p>
+Freelancer projects is an application aimed at accessing the details of autonomous projects and sending proposals.</p>
 
 <p align="center">
   <a href="https://github.com/MarlonBeloMarques">
