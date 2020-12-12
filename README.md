@@ -24,7 +24,7 @@ Freelancer projects is an application aimed at accessing the details of autonomo
 
 | Project | Preview | Screens | Estimation | Status |
 | ------ | :------: | :------: | :------: | :------: |
-| [Share Work Environments](https://www.figma.com/file/VkccwKi1HxnL0nG4RCixkg/interfacetemplates-freelance-projects?node-id=2%3A875) | <img src="./readme/interfacetemplates_freelance-projects.png" width="120" /> | 5 | ~16 hours | :white_check_mark: |
+| [Freelancer Projects](https://www.figma.com/file/VkccwKi1HxnL0nG4RCixkg/interfacetemplates-freelance-projects?node-id=2%3A875) | <img src="./readme/interfacetemplates_freelance-projects.png" width="120" /> | 5 | ~16 hours | :white_check_mark: |
 
 ---
 
